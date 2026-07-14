@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class UserModel {
     private UUID id;
     private String username;
     private String email;
+    @CreationTimestamp
     private Instant createdAt;
     private String password;
 }
