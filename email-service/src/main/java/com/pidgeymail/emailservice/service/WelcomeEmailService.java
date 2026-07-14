@@ -1,6 +1,6 @@
 package com.pidgeymail.emailservice.service;
 
-import com.pidgeymail.emailservice.EventRepository;
+import com.pidgeymail.emailservice.repository.EventRepository;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
