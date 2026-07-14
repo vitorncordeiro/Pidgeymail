@@ -17,7 +17,7 @@ public class UserService {
     @Transactional
     public void create(UserRequest request){
         var userModel = userRepository.save(UserModel.builder()
-                .username(request.username())
+                .password(request.password())
                 .email(request.email())
                 .build());
         userEventPublisher.publish(
