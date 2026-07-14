@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to PidgeyMail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            background: #031633;
+            color: white;
+            text-align: center;
+            padding: 32px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .content {
+            padding: 32px;
+            color: #000000;
+            line-height: 1.7;
+        }
+
+        .content p {
+            margin-bottom: 16px;
+        }
+
+        .highlight {
+            color: #041f47;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            background: #f8fafc;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .gif-container {
+            text-align: center;
+            padding: 24px;
+            background: #ffffff;
+        }
+
+        .gif-container img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+    ```
+
+</head>
+<body>
+
+<div class="container">
+
+    ```
+    <div class="header">
+        <h1>Welcome to PidgeyMail</h1>
+    </div>
+
+    <div class="content">
+        <p>
+            Hello, <span class="highlight" th:text="${username}">User</span>!
+        </p>
+
+        <p>
+            Your account has been successfully created and is ready to use.
+        </p>
+
+        <p>
+            Thank you for joining PidgeyMail. We're excited to have you with us.
+        </p>
+    </div>
+
+    <div class="gif-container">
+        <img
+                src="https://reviewingpokemon.wordpress.com/wp-content/uploads/2014/06/0000000.gif"
+                alt="Pidgey">
+    </div>
+
+    <div class="footer">
+        © 2026 PidgeyMail. All rights reserved.
+    </div>
+    ```
+
+</div>
+
+</body>
+</html>

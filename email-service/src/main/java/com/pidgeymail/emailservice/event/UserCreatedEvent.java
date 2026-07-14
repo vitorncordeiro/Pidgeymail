@@ -1,9 +1,10 @@
 package com.pidgeymail.emailservice.event;
 
 import java.time.Instant;
+import java.util.UUID;
 
 public record UserCreatedEvent(
-        String userId,
+        UUID userId,
         String name,
         String email,
         Instant createdAt
