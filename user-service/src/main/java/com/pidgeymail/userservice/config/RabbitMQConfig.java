@@ -3,7 +3,7 @@ package com.pidgeymail.userservice.config;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.converter.JacksonJsonMessageConverter;
+import org.springframework.amqp.support.converter.JacksonJsonMessageConverter;
 
 @Configuration
 public class RabbitMQConfig {
@@ -17,4 +17,5 @@ public class RabbitMQConfig {
     public TopicExchange topicExchange(){
         return new TopicExchange(EXCHANGE, true, false);
     }
+
 }
