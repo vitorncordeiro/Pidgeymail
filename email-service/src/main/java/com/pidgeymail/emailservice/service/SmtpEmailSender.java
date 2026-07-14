@@ -23,7 +23,7 @@ public class SmtpEmailSender {
                 new MimeMessageHelper(message, true, "UTF-8");
 
         helper.setTo(email);
-        helper.setSubject("Bem-vindo ao PidgeyMail");
+        helper.setSubject("Welcome to PidgeyMail");
         helper.setText(body, true);
         mailSender.send(message);
     }
