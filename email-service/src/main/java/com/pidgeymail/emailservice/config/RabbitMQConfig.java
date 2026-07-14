@@ -3,7 +3,7 @@ package com.pidgeymail.emailservice.config;
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.converter.JacksonJsonMessageConverter;
+import org.springframework.amqp.support.converter.JacksonJsonMessageConverter;
 
 @Configuration
 public class RabbitMQConfig {

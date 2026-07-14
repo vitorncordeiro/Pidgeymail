@@ -1,6 +1,8 @@
 package com.pidgeymail.userservice.service;
 
 import com.pidgeymail.userservice.dto.UserRequest;
+import com.pidgeymail.userservice.event.UserCreatedEvent;
+import com.pidgeymail.userservice.messaging.UserEventPublisher;
 import com.pidgeymail.userservice.model.UserModel;
 import com.pidgeymail.userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +15,7 @@ public class AuthService {
 
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
+    private final UserEventPublisher userEventPublisher;
 
     public void register(UserRequest request) {
 
@@ -20,13 +23,17 @@ public class AuthService {
             throw new RuntimeException("Email already exists");
         }
 
-        UserModel user = new UserModel();
-        user.setEmail(request.email());
-        user.setPassword(
+        UserModel userModel = new UserModel();
+        userModel.setEmail(request.email());
+        userModel.setPassword(
                 passwordEncoder.encode(request.password())
         );
-        user.setUsername(request.username());
+        userModel.setUsername(request.username());
 
-        repository.save(user);
+        repository.save(userModel);
+        userEventPublisher.publish(
+                new UserCreatedEvent(userModel.getId().toString(), userModel.getUsername(),
+                        userModel.getEmail(), userModel.getCreatedAt())
+        );
     }
 }
