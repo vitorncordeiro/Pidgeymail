@@ -40,6 +40,12 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(logQueue).to(userExchange).with(BINDING_KEY);
     }
     @Bean
+    public Binding dlqBinding(Queue logDeadLetterQueue, DirectExchange logDeadLetterExchange) {
+        return BindingBuilder.bind(logDeadLetterQueue)
+                .to(logDeadLetterExchange)
+                .with(DLQ_ROUTING_KEY);
+    }
+    @Bean
     public JacksonJsonMessageConverter jacksonJsonMessageConverter() {
         return new JacksonJsonMessageConverter();
     }
